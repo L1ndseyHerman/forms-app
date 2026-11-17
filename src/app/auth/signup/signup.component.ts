@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  FormArray,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -38,6 +39,12 @@ export class SignupComponent {
     role: new FormControl<
       'student' | 'teacher' | 'employee' | 'founder' | 'other'
     >('student', { validators: [Validators.required] }),
+    //  Group of 3 checkboxes here:
+    source: new FormArray([
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+    ]),
     //  Checkbox has initial value of true of false:
     agree: new FormControl(false, { validators: [Validators.required] }),
   });
